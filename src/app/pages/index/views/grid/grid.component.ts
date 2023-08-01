@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GridActionsComponent } from '../grid-actions/grid-actions.component';
 import { GridHeaderComponent } from '../grid-header/grid-header.component';
 
 @Component({
@@ -6,7 +7,7 @@ import { GridHeaderComponent } from '../grid-header/grid-header.component';
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.css'],
   standalone: true,
-  imports: [GridHeaderComponent],
+  imports: [GridHeaderComponent, GridActionsComponent],
 })
 export class GridComponent implements OnInit {
   constructor() {}
