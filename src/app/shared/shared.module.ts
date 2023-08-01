@@ -1,11 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedComponent } from './shared.component';
+import { NgModule } from '@angular/core';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: [SharedComponent]
+  imports: [CommonModule],
+  declarations: [ModalComponent],
+  exports: [ModalComponent],
 })
-export class SharedModule { }
+export class SharedModule {}

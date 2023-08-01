@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { GridActionsComponent } from '../grid-actions/grid-actions.component';
 import { GridFooterComponent } from '../grid-footer/grid-footer.component';
 import { GridHeaderComponent } from '../grid-header/grid-header.component';
@@ -8,7 +9,12 @@ import { GridHeaderComponent } from '../grid-header/grid-header.component';
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.css'],
   standalone: true,
-  imports: [GridHeaderComponent, GridActionsComponent, GridFooterComponent],
+  imports: [
+    GridHeaderComponent,
+    GridActionsComponent,
+    GridFooterComponent,
+    SharedModule,
+  ],
 })
 export class GridComponent implements OnInit {
   constructor() {}
