@@ -2,10 +2,10 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { HomeComponent } from './components/home/home.component';
 import { IndexRoutingModule } from './index-routing.module';
-import { GridComponent } from './views/grid/grid.component';
+import { ViewsModule } from './views/views.module';
 
 @NgModule({
-  imports: [CommonModule, IndexRoutingModule, GridComponent],
+  imports: [CommonModule, ViewsModule, IndexRoutingModule],
   declarations: [HomeComponent],
 })
 export class IndexModule {}
