@@ -6,7 +6,7 @@ import { ApiService } from './api.service';
   providedIn: 'root',
 })
 export class TemplateService {
-  items$ = new BehaviorSubject<any[]>([]);
+  private items$ = new BehaviorSubject<any[]>([]);
   items = this.items$.asObservable;
   constructor(private apiService: ApiService) {}
   getAll(): Observable<any[]> {
@@ -21,18 +21,18 @@ export class TemplateService {
   }
   deleteById(id: string): Observable<any> {
     return this.apiService.delete(`/api/items/${id}`).pipe(
-      tap((deleteCartItem) => {
-        let updatedCartItems = this.items$.value.filter(
-          (cartItem) => cartItem.id !== deleteCartItem.id
+      tap((deleteItem) => {
+        let updatedItems = this.items$.value.filter(
+          (item) => item.id !== deleteItem.id
         );
-        this.items$.next(updatedCartItems);
+        this.items$.next(updatedItems);
       })
     );
   }
   post(item: any): Observable<any> {
     return this.apiService.post('/api/items', item).pipe(
-      tap((addedCartItem) => {
-        this.items$.value.push(addedCartItem);
+      tap((addedItem) => {
+        this.items$.value.push(addedItem);
       })
     );
   }
