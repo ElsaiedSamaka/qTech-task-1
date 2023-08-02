@@ -3,7 +3,7 @@
   <div class="mx-auto max-w-screen-2xl px-4 lg:px-12">
     <div class="bg-white h-full relative shadow-md sm:rounded-lg overflow-hidden">
       <app-grid-header [data]="users"></app-grid-header>
-      <app-grid-actions></app-grid-actions>
+      <app-grid-actions (viewAddUserModal)="toggleAddUserModal($event)"></app-grid-actions>
       <app-table [data]="users"></app-table>
     <app-grid-footer [data]="users"></app-grid-footer>
     </div>
@@ -11,6 +11,6 @@
 </section>
 <!-- End block -->
 <!-- Add Modal -->
-<app-modal></app-modal>
+<app-modal *ngIf="showAddUserModal"></app-modal>
 <!-- Delete Modal -->
 <app-popup></app-popup>

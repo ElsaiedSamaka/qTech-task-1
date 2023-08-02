@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { UsersService } from 'src/core/services/users.service';
@@ -16,11 +17,13 @@ import { TableComponent } from '../table/table.component';
     GridActionsComponent,
     GridFooterComponent,
     TableComponent,
+    NgIf,
     SharedModule,
   ],
 })
 export class GridComponent implements OnInit {
   users: any[] = [];
+  showAddUserModal: boolean = false;
   constructor(private usersService: UsersService) {}
 
   ngOnInit() {
@@ -36,5 +39,8 @@ export class GridComponent implements OnInit {
       },
       complete: () => {},
     });
+  }
+  toggleAddUserModal(emittedValue: boolean) {
+    this.showAddUserModal = emittedValue;
   }
 }
