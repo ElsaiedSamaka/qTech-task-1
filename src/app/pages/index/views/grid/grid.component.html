@@ -39,36 +39,48 @@
             <span>firstname</span>
             <span>*</span>
           </label>
+          <!-- [control]="authForm.get('email')" -->
+          <app-input type="text" [size]="50" [maxlength]="80" [autofocus]="true" [required]="true"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></app-input>
         </div>
         <div class="flex flex-col">
           <label class="text-sm font-semibold text-gray-900 mb-2">
             <span>lastname</span>
             <span>*</span>
           </label>
+          <app-input type="text" [size]="50" [maxlength]="80" [autofocus]="true" [required]="true"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></app-input>
         </div>
         <div class="flex flex-col">
           <label class="text-sm font-semibold text-gray-900 mb-2">
             <span>phonenumber</span>
             <span>*</span>
           </label>
+        <!-- find the right pattern for phonenumber -->
+        <app-input type="tel" [size]="50" [maxlength]="80" [autofocus]="true" [required]="true"
+          pattern="[0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></app-input>
         </div>
         <div class="flex flex-col">
           <label class="text-sm font-semibold text-gray-900 mb-2">
             <span>email</span>
             <span>*</span>
           </label>
+          <app-input type="email" [size]="50" [maxlength]="80" [autofocus]="true" [required]="true"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></app-input>
         </div>
         <div class="flex flex-col col-span-2">
           <label class="text-sm font-semibold text-gray-900 mb-2">
             <span>birthdate</span>
             <span>*</span>
           </label>
+          <app-input type="date" [size]="50" [maxlength]="80" [autofocus]="true" [required]="true"></app-input>
         </div>
         <div class="flex flex-col col-span-2">
           <label class="text-sm font-semibold text-gray-900 mb-2">
             <span>address</span>
             <span>*</span>
           </label>
+          <app-input type="text" [size]="50" [maxlength]="80" [autofocus]="true" [required]="true"></app-input>
         </div>
       </div>
       <div class="flex flex-col p-2 border-2 border-gray-200 border-dashed border-t-0 w-full h-full rounded-b-3xl">

@@ -1,0 +1,51 @@
+<div [ngClass]="control.invalid && showErrors() ? 'error relative ' : 'relative'">
+  <label *ngIf="label" class="block text-sm font-semibold text-gray-700">{{label}}</label>
+  <ng-content selector="input-icon"></ng-content>
+  <input [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
+    class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
+    [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+    [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern"
+    [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
+  <div
+    class="absolute left-1/4 -top-6  z-10 px-3 py-0.5 text-xs font-medium border-2 border-red-500 text-red-500 rounded-3xl shadow-sm backdrop-blur-3xl tooltip"
+    *ngIf="showErrors() && control.errors!['required']">
+    <p class="text-xs  text-center" *ngIf="control.errors!['required']">
+      this field is required
+    </p>
+  </div>
+  <div
+    class="absolute left-1/4 -top-6  z-10 px-3 py-0.5 text-xs font-medium border-2 border-red-500 text-red-500 rounded-3xl shadow-sm backdrop-blur-3xl tooltip"
+    *ngIf="showErrors() && control.errors!['minlength']">
+    <p class=" text-xs  text-center" *ngIf="control.errors!['minlength']">
+      min length is {{control.errors!['minlength'].requiredLength}} char
+    </p>
+  </div>
+  <div
+    class="absolute left-1/4 -top-6  z-10 px-3 py-0.5 text-xs font-medium border-2 border-red-500 text-red-500 rounded-3xl shadow-sm backdrop-blur-3xl tooltip"
+    *ngIf="showErrors() && control.errors!['maxlength']">
+    <p class="text-xs  text-center" *ngIf="control.errors!['maxlength']">
+      max length is {{control.errors!['maxlength'].requiredLength}} char
+    </p>
+  </div>
+  <div
+    class="absolute left-1/4 -top-6  z-10 px-3 py-0.5 text-xs font-medium border-2 border-red-500 text-red-500 rounded-3xl shadow-sm backdrop-blur-3xl tooltip"
+    *ngIf="showErrors()&&control.errors!['pattern']">
+    <p class=" text-xs  text-center" *ngIf="control.errors!['pattern']">
+      incorrect input form
+    </p>
+  </div>
+  <div
+    class="absolute left-1/4 -top-6  z-10 px-3 py-0.5 text-xs font-medium border-2 border-red-500 text-red-500 rounded-3xl shadow-sm backdrop-blur-3xl tooltip"
+    *ngIf="showErrors()&&control.errors!['notEmailUnique']">
+    <p class=" text-xs  text-center" *ngIf="control.errors!['notEmailUnique']">
+      this mail is already inuse!
+    </p>
+  </div>
+  <div
+    class="absolute left-1/4 -top-6  z-10 px-3 py-0.5 text-xs font-medium border-2 border-red-500 text-red-500 rounded-3xl shadow-sm backdrop-blur-3xl tooltip"
+    *ngIf="showErrors()&&control.errors!['zeroOrNegative']">
+    <p class=" text-xs  text-center" *ngIf="control.errors!['zeroOrNegative']">
+      this input doesn't accept zero or negative value
+    </p>
+  </div>
+</div>
