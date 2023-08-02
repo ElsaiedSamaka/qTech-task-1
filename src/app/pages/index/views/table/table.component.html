@@ -20,7 +20,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="border-b hover:bg-gray-100 ">
+      <tr class="border-b hover:bg-gray-100 " *ngFor="let user of data">
         <td class="p-4 w-5">
           <div class="flex items-center">
             <input id="checkbox-table-search-1" type="checkbox" onclick="event.stopPropagation()"

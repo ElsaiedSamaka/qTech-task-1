@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { UsersService } from 'src/core/services/users.service';
 import { GridActionsComponent } from '../grid-actions/grid-actions.component';
 import { GridFooterComponent } from '../grid-footer/grid-footer.component';
 import { GridHeaderComponent } from '../grid-header/grid-header.component';
@@ -19,7 +20,21 @@ import { TableComponent } from '../table/table.component';
   ],
 })
 export class GridComponent implements OnInit {
-  constructor() {}
+  users: any[] = [];
+  constructor(private usersService: UsersService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getUsers();
+  }
+  getUsers(): void {
+    this.usersService.getAll().subscribe({
+      next: (users) => {
+        this.users = users;
+      },
+      error: (err) => {
+        console.log('error retreiving users:', err);
+      },
+      complete: () => {},
+    });
+  }
 }
