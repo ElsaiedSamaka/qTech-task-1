@@ -11,8 +11,8 @@ export class TemplateService {
   constructor(private apiService: ApiService) {}
   getAll(): Observable<any[]> {
     return this.apiService.get('/api/items').pipe(
-      tap((cartItems) => {
-        this.items$.next(cartItems);
+      tap((items) => {
+        this.items$.next(items);
       })
     );
   }
@@ -29,18 +29,18 @@ export class TemplateService {
       })
     );
   }
-  post(cartItem: any): Observable<any> {
-    return this.apiService.post('/api/items', cartItem).pipe(
+  post(item: any): Observable<any> {
+    return this.apiService.post('/api/items', item).pipe(
       tap((addedCartItem) => {
         this.items$.value.push(addedCartItem);
       })
     );
   }
-  put(id: string, cartItem: any): Observable<any> {
-    return this.apiService.put(`/api/cart/${id}`, cartItem).pipe(
-      tap((updatedCartItem) => {
+  put(id: string, item: any): Observable<any> {
+    return this.apiService.put(`/api/cart/${id}`, item).pipe(
+      tap((updatedItem) => {
         const index = this.items$.value.indexOf(id);
-        this.items$.value.splice(index, 1, updatedCartItem);
+        this.items$.value.splice(index, 1, updatedItem);
       })
     );
   }
