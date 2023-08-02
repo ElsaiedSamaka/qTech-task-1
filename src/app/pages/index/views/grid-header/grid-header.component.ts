@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-grid-header',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   standalone: true,
 })
 export class GridHeaderComponent implements OnInit {
+  @Input() data: any[] = [];
   constructor() {}
 
   ngOnInit() {}
