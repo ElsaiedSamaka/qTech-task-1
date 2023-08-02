@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { UsersService } from 'src/core/services/users.service';
@@ -18,6 +18,7 @@ import { TableComponent } from '../table/table.component';
     GridFooterComponent,
     TableComponent,
     NgIf,
+    NgFor,
     SharedModule,
   ],
 })
