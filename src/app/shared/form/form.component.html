@@ -3,7 +3,9 @@
     class="p-5 mt-4 border-2 border-gray-200 border-dashed  w-full h-full rounded-2xl">
   <div *ngFor="let field of fields">
       <div [ngSwitch]="field.type">
-        <div *ngSwitchCase="'text'"> <app-input [control]="form.get(field.name)" [id]=field.name [name]=field.name
+        <div *ngSwitchCase="'text'">
+          <span class="text-xs">{{field.required}}</span>
+          <app-input [control]="form.get(field.name)" [id]=field.name [name]=field.name
             [type]=field.type [label]=field.label [maxlength]=field.maxlength
       [minlength]=field.minlength [autofocus]=field.autofocus [required]=field.required [pattern]=field.pattern></app-input>
       </div>

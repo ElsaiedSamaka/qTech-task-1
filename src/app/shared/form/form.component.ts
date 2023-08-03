@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class FormComponent implements OnInit {
   @Input() fields: any[] = [];
   @Output() submitted = new EventEmitter<any>();
+  @Output() formStatus = new EventEmitter<any>();
   form: FormGroup;
   constructor(private fb: FormBuilder) {}
 
@@ -21,8 +22,12 @@ export class FormComponent implements OnInit {
       ];
     });
     this.form = this.fb.group(group);
+    this.emitFormStatus();
   }
   submitForm() {
     this.submitted.emit(this.form.value);
+  }
+  emitFormStatus() {
+    this.formStatus.emit(this.form.status);
   }
 }
