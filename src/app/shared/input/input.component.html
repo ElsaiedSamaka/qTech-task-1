@@ -1,11 +1,79 @@
 <div [ngClass]="control.invalid && showErrors() ? 'error relative ' : 'relative'">
   <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">{{label}}</label>
   <ng-content selector="input-icon"></ng-content>
-  <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
-    class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
-    [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
-    [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern"
-    [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
+  <!-- input -->
+  <ng-container [ngSwitch]="type">
+    <div *ngSwitchCase="'text'">text input
+      <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
+        class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+        [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern"
+        [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
+    </div>
+    <div *ngSwitchCase="'number'">number input
+      <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
+        class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+        [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern"
+        [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
+    </div>
+    <div *ngSwitchCase="'tel'">tel input
+      <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
+        class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+        [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern"
+        [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
+    </div>
+    <div *ngSwitchCase="'search'">search input
+      <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
+        class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+        [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern"
+        [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
+    </div>
+    <div *ngSwitchCase="'password'">password input
+      <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
+        class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+        [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern"
+        [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
+    </div>
+    <div *ngSwitchCase="'checkbox'">checkbox input
+      <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
+        class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+        [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern"
+        [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
+    </div>
+    <div *ngSwitchCase="'date'">date input
+      <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
+        class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+        [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern"
+        [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
+    </div>
+    <div *ngSwitchCase="'email'">email input
+      <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
+        class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+        [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern" [autocomplete]="autocomplete"
+        [autofocus]="autofocus" [title]="title" />
+    </div>
+    <div *ngSwitchCase="'textarea'">textarea input
+      <textarea class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [id]="id" [name]="name" [title]="title"
+        [formControl]="control" [autofocus]="autofocus" [size]="size" [maxlength]="maxlength" [minlength]="minlength"
+        [required]="required" [disabled]="disabled" [placeholder]="placeholder"></textarea>
+    </div>
+    <div *ngSwitchCase="'select'">select input
+      <select *ngSwitchCase="'select'"
+        class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full" [id]="id"
+        [formControl]="control">
+        <option *ngFor="let option of options" [value]="option.value">{{option.label}}</option>
+      </select>
+    </div>
+    </ng-container>
+    <!-- validations -->
   <div
     class="absolute left-1/4 -top-6  z-10 px-3 py-0.5 text-xs font-medium border-2 border-red-500 text-red-500 rounded-3xl shadow-sm backdrop-blur-3xl tooltip"
     *ngIf="showErrors() && control.errors!['required']">

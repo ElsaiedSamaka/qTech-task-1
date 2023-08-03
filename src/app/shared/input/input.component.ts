@@ -25,12 +25,15 @@ export class InputComponent implements OnInit {
   @Input() title: string = '';
   @Input() name: string = '';
   @Input() id: string = '';
+  @Input() options: any[] = [];
 
   showErrors() {
     const { dirty, touched, errors } = this.control;
     return dirty && touched && errors;
   }
-  constructor() {}
+  constructor() {
+    console.log('type', this.type);
+  }
 
   ngOnInit() {}
 }
