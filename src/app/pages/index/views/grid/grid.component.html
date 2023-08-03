@@ -38,7 +38,7 @@
           { name: 'email', label: 'email', type: 'email', maxlength:30 , minlength:11 ,autofocus:false ,required:true, pattern:'[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$', validators: [validators.required, validators.email] },
           { name: 'birthdate', label: 'birthdate', type: 'date' ,autofocus:false,required:true, validators: [validators.required] },
           { name: 'address', label: 'address', type: 'textarea', maxlength:1000, minlength:12 , required:true, validators: [validators.required] },
-        ]" (submitted)="onFormSubmitted($event)" (formStatus)="checkFormStatus($event)"></app-form>
+        ]" (submitted)="onFormSubmitted($event)" ></app-form>
     </div>
     </app-modal>
     <!-- Delete Modal -->

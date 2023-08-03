@@ -20,23 +20,21 @@ export class FormComponent implements OnInit {
         field.value || '',
         Validators.compose(field.validators || []),
       ];
-      console.log('form field', field.name, 'validators', field.validators);
     });
     this.form = this.fb.group(group);
-    this.emitFormStatus();
   }
   submitForm() {
     this.submitted.emit(this.form.value);
   }
-  emitFormStatus() {
-      this.form.statusChanges.subscribe({
-        next: (status) => {
-          this.formStatus.emit(status);
-        },
-        error: (err) => {
-          console.log('err', err);
-        },
-        complete: () => {},
-      });
-  }
+  // emitFormStatus() {
+  //     this.form.statusChanges.subscribe({
+  //       next: (status) => {
+  //         this.formStatus.emit(status);
+  //       },
+  //       error: (err) => {
+  //         console.log('err', err);
+  //       },
+  //       complete: () => {},
+  //     });
+  // }
 }
