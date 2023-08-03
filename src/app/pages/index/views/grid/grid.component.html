@@ -38,7 +38,7 @@
           { name: 'email', label: 'email', type: 'email', maxlength:30 , minlength:11 ,autofocus:false ,required:true, pattern:'[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$', validators: [validators.required, validators.email] },
           { name: 'birthdate', label: 'birthdate', type: 'date' ,autofocus:false,required:true, validators: [validators.required] },
           { name: 'address', label: 'address', type: 'textarea', maxlength:1000, minlength:12 , required:true, validators: [validators.required] },
-        ]" (submitted)="onFormSubmitted($event)">
+        ]" (submitted)="onFormSubmitted($event)" (formStatus)="checkFormStatus($event)">
       <ng-container form-actions>
         <button (click)="closeAddUserModal()"
           class="inline-block  shrink-0 rounded-2xl border border-gray-300 mx-1 px-6 py-2 text-sm font-semibold hover:bg-gray-400 hover:text-white focus:outline-none active:text-white disabled:cursor-not-allowed">

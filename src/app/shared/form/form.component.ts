@@ -22,19 +22,20 @@ export class FormComponent implements OnInit {
       ];
     });
     this.form = this.fb.group(group);
+    this.emitFormStatus()
   }
   submitForm() {
     if (this.form.valid) this.submitted.emit(this.form.value);
   }
-  // emitFormStatus() {
-  //     this.form.statusChanges.subscribe({
-  //       next: (status) => {
-  //         this.formStatus.emit(status);
-  //       },
-  //       error: (err) => {
-  //         console.log('err', err);
-  //       },
-  //       complete: () => {},
-  //     });
-  // }
+  emitFormStatus() {
+      this.form.statusChanges.subscribe({
+        next: (status) => {
+          this.formStatus.emit(status);
+        },
+        error: (err) => {
+          console.log('err', err);
+        },
+        complete: () => {},
+      });
+  }
 }

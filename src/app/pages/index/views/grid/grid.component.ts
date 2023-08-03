@@ -51,4 +51,7 @@ export class GridComponent implements OnInit {
   onFormSubmitted(emittedValue: any) {
     console.log('emittedValue', emittedValue);
   }
+  checkFormStatus(emitFormStatus: any) {
+    console.log('emitFormStatus', emitFormStatus);
+  }
 }
