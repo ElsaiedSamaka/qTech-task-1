@@ -10,7 +10,7 @@
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
         class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
-        [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern"
+        [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
         
     </div>
@@ -22,7 +22,7 @@
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
         class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
-        [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern"
+        [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
     </div>
     <div *ngSwitchCase="'tel'">
@@ -30,10 +30,11 @@
         <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
-      <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
+      <input [id]="id" [name]="name" [formControl]="control" (keydown)="onKeyDown($event)" [placeholder]="placeholder"
+        [type]="type" [value]="value"
         class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
-        [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern"
+        [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
     </div>
     <div *ngSwitchCase="'search'">
@@ -44,7 +45,7 @@
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
         class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
-        [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern"
+        [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
     </div>
     <div *ngSwitchCase="'password'">
@@ -55,7 +56,7 @@
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
         class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
-        [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern"
+        [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
     </div>
     <div *ngSwitchCase="'checkbox'">
@@ -66,7 +67,7 @@
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
         class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
-        [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern"
+        [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
     </div>
     <div *ngSwitchCase="'date'">
@@ -77,7 +78,7 @@
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
         class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
-        [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern"
+        [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
     </div>
     <div *ngSwitchCase="'email'">
@@ -88,7 +89,7 @@
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
         class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
-        [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern" [autocomplete]="autocomplete"
+        [minlength]="minlength" [required]="required"  [pattern]="pattern" [autocomplete]="autocomplete"
         [autofocus]="autofocus" [title]="title" />
     </div>
     <div *ngSwitchCase="'textarea'">
@@ -99,7 +100,7 @@
       <textarea class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [id]="id" [name]="name" [title]="title"
         [formControl]="control" [autofocus]="autofocus" [size]="size" [maxlength]="maxlength" [minlength]="minlength"
-        [required]="required" [disabled]="disabled" [placeholder]="placeholder"></textarea>
+        [required]="required"  [placeholder]="placeholder"></textarea>
     </div>
     <div *ngSwitchCase="'select'">
       <div class="flex">

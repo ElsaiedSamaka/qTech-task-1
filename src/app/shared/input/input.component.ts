@@ -31,9 +31,17 @@ export class InputComponent implements OnInit {
     const { dirty, touched, errors } = this.control;
     return dirty && touched && errors;
   }
-  constructor() {
-    console.log('type', this.type);
-  }
+  constructor() {}
 
   ngOnInit() {}
+  // prevent nonnumaric inputs of tel type input
+  onKeyDown(event: KeyboardEvent): void {
+    const charCode = event.which || event.keyCode;
+    if (charCode < 48 || charCode > 57) {
+      event.preventDefault();
+      // this.isInvalid = true;
+    } else {
+      // this.isInvalid = false;
+    }
+  }
 }
