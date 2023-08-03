@@ -31,57 +31,76 @@
     </div>
   </div>
   <div modal-body>
-    <form>
-      <div
-        class="p-5 mt-4 border-2 border-gray-200 border-dashed border-b-0 w-full h-full grid grid-rows-2 grid-cols-2 gap-2 justify-end rounded-t-2xl">
-        <div class="flex flex-col">
-          <label class="text-sm font-semibold text-gray-900 mb-2">
-            <span>firstname</span>
-            <span>*</span>
-          </label>
-          <!-- [control]="authForm.get('email')" -->
-          <app-input type="text" [size]="50" [maxlength]="80" [autofocus]="true" [required]="true"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></app-input>
-        </div>
-        <div class="flex flex-col">
-          <label class="text-sm font-semibold text-gray-900 mb-2">
-            <span>lastname</span>
-            <span>*</span>
-          </label>
-          <app-input type="text" [size]="50" [maxlength]="80" [autofocus]="true" [required]="true"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></app-input>
-        </div>
-        <div class="flex flex-col">
-          <label class="text-sm font-semibold text-gray-900 mb-2">
-            <span>phonenumber</span>
-            <span>*</span>
-          </label>
-        <!-- find the right pattern for phonenumber -->
-        <app-input type="tel" [size]="50" [maxlength]="80" [autofocus]="true" [required]="true"
-          pattern="[0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></app-input>
-        </div>
-        <div class="flex flex-col">
-          <label class="text-sm font-semibold text-gray-900 mb-2">
-            <span>email</span>
-            <span>*</span>
-          </label>
-          <app-input type="email" [size]="50" [maxlength]="80" [autofocus]="true" [required]="true"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></app-input>
-        </div>
-        <div class="flex flex-col col-span-2">
-          <label class="text-sm font-semibold text-gray-900 mb-2">
-            <span>birthdate</span>
-            <span>*</span>
-          </label>
-          <app-input type="date" [size]="50" [maxlength]="80" [autofocus]="true" [required]="true"></app-input>
-        </div>
-        <div class="flex flex-col col-span-2">
-          <label class="text-sm font-semibold text-gray-900 mb-2">
-            <span>address</span>
-            <span>*</span>
-          </label>
-          <app-input type="text" [size]="50" [maxlength]="80" [autofocus]="true" [required]="true"></app-input>
-        </div>
+    <app-form [fields]="[
+          { name: 'name', label: 'Name', type: 'text', validators: [Validators.required] },
+          { name: 'email', label: 'Email', type: 'email', validators: [Validators.required, Validators.email] },
+          { name: 'message', label: 'Message', type: 'textarea', validators: [Validators.required] },
+          { 
+            name: 'category', 
+            label: 'Category', 
+            type: 'select', 
+            options: [
+              { label: 'General Inquiry', value: 'general' },
+              { label: 'Support Request', value: 'support' },
+              { label: 'Bug Report', value: 'bug' }
+            ] 
+          }
+        ]" (submitted)="onFormSubmitted($event)"></app-form>
+    </div>
+    </app-modal>
+    <!-- Delete Modal -->
+    <app-popup></app-popup>
+    <!-- <form>
+                <div
+                  class="p-5 mt-4 border-2 border-gray-200 border-dashed border-b-0 w-full h-full grid grid-rows-2 grid-cols-2 gap-2 justify-end rounded-t-2xl">
+                  <div class="flex flex-col">
+                    <label class="text-sm font-semibold text-gray-900 mb-2">
+                      <span>firstname</span>
+                      <span>*</span>
+                    </label>
+      [control]="authForm.get('email')"
+      <app-input type="text" [size]="50" [maxlength]="80" [autofocus]="true" [required]="true"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></app-input>
+      </div>
+      <div class="flex flex-col">
+        <label class="text-sm font-semibold text-gray-900 mb-2">
+          <span>lastname</span>
+          <span>*</span>
+        </label>
+        <app-input type="text" [size]="50" [maxlength]="80" [autofocus]="true" [required]="true"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></app-input>
+      </div>
+      <div class="flex flex-col">
+        <label class="text-sm font-semibold text-gray-900 mb-2">
+          <span>phonenumber</span>
+          <span>*</span>
+        </label>
+      find the right pattern for phonenumber
+      <app-input type="tel" [size]="50" [maxlength]="80" [autofocus]="true" [required]="true"
+        pattern="[0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></app-input>
+      </div>
+      <div class="flex flex-col">
+        <label class="text-sm font-semibold text-gray-900 mb-2">
+          <span>email</span>
+          <span>*</span>
+        </label>
+        <app-input type="email" [size]="50" [maxlength]="80" [autofocus]="true" [required]="true"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></app-input>
+      </div>
+      <div class="flex flex-col col-span-2">
+        <label class="text-sm font-semibold text-gray-900 mb-2">
+          <span>birthdate</span>
+          <span>*</span>
+        </label>
+        <app-input type="date" [size]="50" [maxlength]="80" [autofocus]="true" [required]="true"></app-input>
+      </div>
+      <div class="flex flex-col col-span-2">
+        <label class="text-sm font-semibold text-gray-900 mb-2">
+          <span>address</span>
+          <span>*</span>
+        </label>
+        <app-input type="text" [size]="50" [maxlength]="80" [autofocus]="true" [required]="true"></app-input>
+      </div>
       </div>
       <div class="flex flex-col p-2 border-2 border-gray-200 border-dashed border-t-0 w-full h-full rounded-b-3xl">
         <div class="flex justify-start">
@@ -94,9 +113,5 @@
             تأكيد
           </button>
         </div>
-      </div>
-    </form>
   </div>
-</app-modal>
-<!-- Delete Modal -->
-<app-popup></app-popup>
+</form> -->

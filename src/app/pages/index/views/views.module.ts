@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { GridActionsComponent } from './grid-actions/grid-actions.component';
 import { GridFooterComponent } from './grid-footer/grid-footer.component';
 import { GridHeaderComponent } from './grid-header/grid-header.component';
@@ -9,6 +10,7 @@ import { TableComponent } from './table/table.component';
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     GridComponent,
     TableComponent,
     GridHeaderComponent,
