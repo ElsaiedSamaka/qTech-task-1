@@ -45,6 +45,9 @@ export class GridComponent implements OnInit {
   toggleAddUserModal(emittedValue: boolean) {
     this.showAddUserModal = emittedValue;
   }
+  closeAddUserModal() {
+    this.showAddUserModal = false;
+  }
   onFormSubmitted(emittedValue: any) {
     console.log('emittedValue', emittedValue);
   }
