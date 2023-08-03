@@ -24,7 +24,7 @@ export class FormComponent implements OnInit {
     this.form = this.fb.group(group);
   }
   submitForm() {
-    this.submitted.emit(this.form.value);
+    if (this.form.valid) this.submitted.emit(this.form.value);
   }
   // emitFormStatus() {
   //     this.form.statusChanges.subscribe({
