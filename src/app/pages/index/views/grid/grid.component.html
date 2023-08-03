@@ -38,7 +38,18 @@
           { name: 'email', label: 'email', type: 'email', maxlength:30 , minlength:11 ,autofocus:false ,required:true, pattern:'[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$', validators: [validators.required, validators.email] },
           { name: 'birthdate', label: 'birthdate', type: 'date' ,autofocus:false,required:true, validators: [validators.required] },
           { name: 'address', label: 'address', type: 'textarea', maxlength:1000, minlength:12 , required:true, validators: [validators.required] },
-        ]" (submitted)="onFormSubmitted($event)" ></app-form>
+        ]" (submitted)="onFormSubmitted($event)" >
+      <ng-container form-actions>
+          <button
+            class="inline-block  shrink-0 rounded-3xl border border-gray-300 mx-1 px-6 py-2 text-sm font-semibold hover:bg-gray-400 hover:text-white focus:outline-none active:text-white disabled:cursor-not-allowed">
+            الغاء
+          </button>
+          <button type="submit" 
+            class="inline-block bg-black shrink-0 rounded-3xl mx-1 px-6 py-1 text-sm font-semibold text-white hover:text-gray-50 focus:outline-none active:text-white disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400">
+            تأكيد
+          </button>
+      </ng-container>
+      </app-form>
     </div>
     </app-modal>
     <!-- Delete Modal -->
