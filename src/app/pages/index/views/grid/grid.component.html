@@ -5,7 +5,7 @@
       <app-grid-header [data]="users"></app-grid-header>
       <app-grid-actions (viewAddUserModal)="toggleAddUserModal($event)"></app-grid-actions>
       <app-table [data]="users"></app-table>
-    <app-grid-footer [data]="users"></app-grid-footer>
+      <app-grid-footer [data]="users"></app-grid-footer>
     </div>
   </div>
 </section>
@@ -38,24 +38,24 @@
           { name: 'email', label: 'email', type: 'email', maxlength:30 , minlength:11 ,autofocus:false ,required:true, pattern:'[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$', validators: [validators.required, validators.email] },
           { name: 'birthdate', label: 'birthdate', type: 'date' ,autofocus:false,required:true, validators: [validators.required] },
           { name: 'address', label: 'address', type: 'textarea', maxlength:1000, minlength:12 , required:true, validators: [validators.required] },
-        ]" (submitted)="onFormSubmitted($event)" >
+        ]" (submitted)="onFormSubmitted($event)">
       <ng-container form-actions>
-          <button
-            class="inline-block  shrink-0 rounded-3xl border border-gray-300 mx-1 px-6 py-2 text-sm font-semibold hover:bg-gray-400 hover:text-white focus:outline-none active:text-white disabled:cursor-not-allowed">
-            الغاء
+        <button
+          class="inline-block  shrink-0 rounded-2xl border border-gray-300 mx-1 px-6 py-2 text-sm font-semibold hover:bg-gray-400 hover:text-white focus:outline-none active:text-white disabled:cursor-not-allowed">
+          cancel
           </button>
-          <button type="submit" 
-            class="inline-block bg-black shrink-0 rounded-3xl mx-1 px-6 py-1 text-sm font-semibold text-white hover:text-gray-50 focus:outline-none active:text-white disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400">
-            تأكيد
+          <button type="submit"
+            class="inline-block px-6 py-2 rounded-2xl text-gray-700 font-semibold border border-green-600 hover:bg-green-600 hover:text-white active:text-white disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400">
+          save
           </button>
       </ng-container>
-      </app-form>
+    </app-form>
     </div>
     </app-modal>
     <!-- Delete Modal -->
     <app-popup></app-popup>
 
-      <!-- {
+<!-- {
       name: 'category',
       label: 'Category',
       type: 'select',
