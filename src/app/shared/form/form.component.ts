@@ -23,7 +23,6 @@ export class FormComponent implements OnInit {
       console.log('form field', field.name, 'validators', field.validators);
     });
     this.form = this.fb.group(group);
-    this.emitFormStatus();
   }
   submitForm() {
     this.submitted.emit(this.form.value);
