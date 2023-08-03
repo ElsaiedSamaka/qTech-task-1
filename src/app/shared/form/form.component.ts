@@ -20,6 +20,7 @@ export class FormComponent implements OnInit {
         field.value || '',
         Validators.compose(field.validators || []),
       ];
+      console.log('form field', field.name, 'validators', field.validators);
     });
     this.form = this.fb.group(group);
     this.emitFormStatus();

@@ -25,7 +25,7 @@ import { TableComponent } from '../table/table.component';
 export class GridComponent implements OnInit {
   users: any[] = [];
   showAddUserModal: boolean = false;
-  Validators = new Validators();
+  validators = Validators;
   constructor(private usersService: UsersService) {}
 
   ngOnInit() {
