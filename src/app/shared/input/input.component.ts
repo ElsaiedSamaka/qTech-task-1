@@ -39,9 +39,8 @@ export class InputComponent implements OnInit {
     const charCode = event.which || event.keyCode;
     if (charCode < 48 || charCode > 57) {
       event.preventDefault();
-      // this.isInvalid = true;
     } else {
-      // this.isInvalid = false;
+      return;
     }
   }
 }
