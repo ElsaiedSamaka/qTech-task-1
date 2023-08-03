@@ -32,9 +32,9 @@
   </div>
   <div modal-body>
     <app-form [fields]="[
-          { name: 'name', label: 'Name', type: 'text', validators: [Validators.required] },
-          { name: 'email', label: 'Email', type: 'email', validators: [Validators.required, Validators.email] },
-          { name: 'message', label: 'Message', type: 'textarea', validators: [Validators.required] },
+          { name: 'name', label: 'Name', type: 'text', maxlength:10 , minlength:4, autofocus:false,  validators: [Validators.required] },
+          { name: 'email', label: 'Email', type: 'email', maxlength:30 , minlength:11 ,autofocus:true , pattern:'[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$', validators: [Validators.required, Validators.email] },
+          { name: 'message', label: 'Message', type: 'textarea', maxlength:1000, minlength:12 , required:true, validators: [Validators.required] },
           { 
             name: 'category', 
             label: 'Category', 
