@@ -1,4 +1,6 @@
 <form [formGroup]="form" (ngSubmit)="submitForm()">
+  <div
+    class="p-5 mt-4 border-2 border-gray-200 border-dashed  w-full h-full grid grid-rows-2 grid-cols-2 gap-2 justify-end rounded-2xl">
   <div *ngFor="let field of fields">
       <div [ngSwitch]="field.type">
         <div *ngSwitchCase="'text'"> <app-input [control]="form.get(field.name)" [id]=field.name [name]=field.name
@@ -23,10 +25,15 @@
       </div>
       </div>
       </div>
-  <button type="submit">Submit</button>
+  <div class="flex justify-start">
+    <button
+      class="inline-block  shrink-0 rounded-3xl border border-gray-300 mx-1 px-6 py-2 text-sm font-semibold hover:bg-gray-400 hover:text-white focus:outline-none active:text-white disabled:cursor-not-allowed">
+      الغاء
+    </button>
+    <button type="submit"
+      class="inline-block bg-black shrink-0 rounded-3xl mx-1 px-6 py-1 text-sm font-semibold text-white hover:text-gray-50 focus:outline-none active:text-white disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400">
+      تأكيد
+    </button>
+  </div>
+  </div>
 </form>
-<!-- 
-<textarea *ngSwitchCase="'textarea'" [id]="field.name" [formControlName]="field.name"></textarea>
-<select *ngSwitchCase="'select'" [id]="field.name" [formControlName]="field.name">
-  <option *ngFor="let option of field.options" [value]="option.value">{{option.label}}</option>
-</select> -->

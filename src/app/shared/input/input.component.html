@@ -1,71 +1,111 @@
-<div [ngClass]="control.invalid && showErrors() ? 'error relative ' : 'relative'">
-  <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">{{label}}</label>
+<div class="flex flex-col" [ngClass]="control.invalid && showErrors() ? 'error relative ' : 'relative'">
   <ng-content selector="input-icon"></ng-content>
   <!-- input -->
   <ng-container [ngSwitch]="type">
-    <div *ngSwitchCase="'text'">text input
+    <div *ngSwitchCase="'text'">
+      <div class="flex">
+        <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">{{label}}</label>
+        <span *ngIf="required">*</span>
+      </div>
+      <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
+        class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+        [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern"
+        [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
+        
+    </div>
+    <div *ngSwitchCase="'number'">
+      <div class="flex">
+        <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">{{label}}</label>
+        <span *ngIf="required">*</span>
+      </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
         class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
         [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
     </div>
-    <div *ngSwitchCase="'number'">number input
+    <div *ngSwitchCase="'tel'">
+      <div class="flex">
+        <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">{{label}}</label>
+        <span *ngIf="required">*</span>
+      </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
         class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
         [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
     </div>
-    <div *ngSwitchCase="'tel'">tel input
+    <div *ngSwitchCase="'search'">
+      <div class="flex">
+        <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">{{label}}</label>
+        <span *ngIf="required">*</span>
+      </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
         class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
         [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
     </div>
-    <div *ngSwitchCase="'search'">search input
+    <div *ngSwitchCase="'password'">
+      <div class="flex">
+        <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">{{label}}</label>
+        <span *ngIf="required">*</span>
+      </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
         class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
         [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
     </div>
-    <div *ngSwitchCase="'password'">password input
+    <div *ngSwitchCase="'checkbox'">
+      <div class="flex">
+        <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">{{label}}</label>
+        <span *ngIf="required">*</span>
+      </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
         class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
         [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
     </div>
-    <div *ngSwitchCase="'checkbox'">checkbox input
+    <div *ngSwitchCase="'date'">
+      <div class="flex">
+        <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">{{label}}</label>
+        <span *ngIf="required">*</span>
+      </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
         class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
         [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
     </div>
-    <div *ngSwitchCase="'date'">date input
-      <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
-        class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
-        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
-        [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern"
-        [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
-    </div>
-    <div *ngSwitchCase="'email'">email input
+    <div *ngSwitchCase="'email'">
+      <div class="flex">
+        <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">{{label}}</label>
+        <span *ngIf="required">*</span>
+      </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
         class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
         [minlength]="minlength" [required]="required" [disabled]="disabled" [pattern]="pattern" [autocomplete]="autocomplete"
         [autofocus]="autofocus" [title]="title" />
     </div>
-    <div *ngSwitchCase="'textarea'">textarea input
+    <div *ngSwitchCase="'textarea'">
+      <div class="flex">
+        <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">{{label}}</label>
+        <span *ngIf="required">*</span>
+      </div>
       <textarea class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [id]="id" [name]="name" [title]="title"
         [formControl]="control" [autofocus]="autofocus" [size]="size" [maxlength]="maxlength" [minlength]="minlength"
         [required]="required" [disabled]="disabled" [placeholder]="placeholder"></textarea>
     </div>
-    <div *ngSwitchCase="'select'">select input
+    <div *ngSwitchCase="'select'">
+      <div class="flex">
+        <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">{{label}}</label>
+        <span *ngIf="required">*</span>
+      </div>
       <select *ngSwitchCase="'select'"
         class="mt-1 rounded-3xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full" [id]="id"
         [formControl]="control">
