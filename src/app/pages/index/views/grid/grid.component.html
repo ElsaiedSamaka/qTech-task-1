@@ -32,21 +32,25 @@
   </div>
   <div modal-body>
     <app-form [fields]="[
-          { name: 'name', label: 'Name', type: 'text', maxlength:10 , minlength:4, autofocus:false,  validators: [Validators.required] },
-          { name: 'email', label: 'Email', type: 'email', maxlength:30 , minlength:11 ,autofocus:true , pattern:'[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$', validators: [Validators.required, Validators.email] },
-          { name: 'message', label: 'Message', type: 'textarea', maxlength:1000, minlength:12 , required:true, validators: [Validators.required] },
-          { 
-            name: 'category', 
-            label: 'Category', 
-            type: 'select', 
-            options: [
-              { label: 'General Inquiry', value: 'general' },
-              { label: 'Support Request', value: 'support' },
-              { label: 'Bug Report', value: 'bug' }
-            ] 
-          }
+          { name: 'firstname', label: 'firstname', type: 'text', maxlength:15 , minlength:3, autofocus:true,  validators: [Validators.required] },
+          { name: 'lastname', label: 'lastname', type: 'text', maxlength:15 , minlength:3, autofocus:false,  validators: [Validators.required] },
+          { name: 'phonenumber', label: 'phonenumber', type: 'tel', maxlength:15 , minlength:11, autofocus:false,  validators: [Validators.required] },
+          { name: 'email', label: 'email', type: 'email', maxlength:30 , minlength:11 ,autofocus:false , pattern:'[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$', validators: [Validators.required, Validators.email] },
+          { name: 'address', label: 'address', type: 'textarea', maxlength:1000, minlength:12 , required:true, validators: [Validators.required] },
+        
         ]" (submitted)="onFormSubmitted($event)"></app-form>
     </div>
     </app-modal>
     <!-- Delete Modal -->
     <app-popup></app-popup>
+
+      <!-- {
+      name: 'category',
+      label: 'Category',
+      type: 'select',
+      options: [
+      { label: 'General Inquiry', value: 'general' },
+      { label: 'Support Request', value: 'support' },
+      { label: 'Bug Report', value: 'bug' }
+      ]
+      } -->
