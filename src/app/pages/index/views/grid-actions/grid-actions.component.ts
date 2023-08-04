@@ -10,11 +10,11 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [NgIf, SharedModule],
 })
 export class GridActionsComponent implements OnInit {
-  @Output() viewAddUserModal = new EventEmitter<boolean>();
+  @Output() viewAddModal = new EventEmitter<boolean>();
   constructor() {}
 
   ngOnInit() {}
   showAddUserModal() {
-    this.viewAddUserModal.emit(true);
+    this.viewAddModal.emit(true);
   }
 }
