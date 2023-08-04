@@ -52,9 +52,10 @@
     </app-form>
     </div>
     </app-modal>
-    <!-- Delete Modal -->
-    <app-popup></app-popup>
-
+<!-- Delete Modal -->
+<app-popup></app-popup>
+<!-- Toast -->
+<app-toast *ngIf="showToast" toastType="error" [toastMessage]="toastMessage" (dismiss)="toggleToast()"></app-toast>
 <!-- {
       name: 'category',
       label: 'Category',

@@ -27,6 +27,8 @@ export class GridComponent implements OnInit {
   showAddUserModal: boolean = false;
   validators = Validators;
   isFormValid: boolean = false;
+  showToast: boolean = false;
+  toastMessage: string = '';
   constructor(private usersService: UsersService) {}
 
   ngOnInit() {
@@ -59,6 +61,12 @@ export class GridComponent implements OnInit {
   }
   closeAddUserModal() {
     this.showAddUserModal = false;
+  }
+  toggleToast() {
+    this.showToast = !this.showToast;
+    setTimeout(() => {
+      this.showToast = false;
+    }, 4000);
   }
   onFormSubmitted(emittedValue: any) {
     this.postUser(emittedValue);
