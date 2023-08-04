@@ -87,7 +87,7 @@ export class GridComponent implements OnInit {
       ? (this.isFormValid = false)
       : (this.isFormValid = true);
   }
-  toggleConfirmationModal() {
+  toggleConfirmationModal(emittedValue: any) {
     this.showDeletetionConfirmationModal =
       !this.showDeletetionConfirmationModal;
   }

@@ -1,5 +1,5 @@
 import { DatePipe, NgFor, NgIf } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-table',
@@ -10,7 +10,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TableComponent implements OnInit {
   @Input() data: any[] = [];
+  @Output() viewDeleteModal = new EventEmitter<boolean>();
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() { }
+  showDeletetionConfirmationModal() {
+    this.viewDeleteModal.emit(true)
+  }
 }
