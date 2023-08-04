@@ -43,16 +43,16 @@ export class GridComponent implements OnInit {
       complete: () => {},
     });
   }
-  postUser(user:any) {
+  postUser(user: any) {
     this.usersService.post(user).subscribe({
-      next: (newUser) => {
-        console.log('newUser',newUser)
-      },
+      next: (newUser) => {},
       error: (err) => {
-        console.log("error",err)
+        console.log('error', err);
       },
-      complete:()=>{}
-    })
+      complete: () => {
+        this.closeAddUserModal();
+      },
+    });
   }
   toggleAddUserModal(emittedValue: boolean) {
     this.showAddUserModal = emittedValue;
@@ -61,8 +61,7 @@ export class GridComponent implements OnInit {
     this.showAddUserModal = false;
   }
   onFormSubmitted(emittedValue: any) {
-    console.log('emittedValue', emittedValue);
-    this.postUser(emittedValue)
+    this.postUser(emittedValue);
   }
   checkFormStatus(emitFormStatus: any) {
     emitFormStatus == 'INVALID'
