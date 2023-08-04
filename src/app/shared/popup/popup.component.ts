@@ -18,7 +18,6 @@ export class PopupComponent implements OnInit {
 
   ngOnInit() {
     document.body.appendChild(this.el.nativeElement);
-    this.disableHostScrolling();
   }
   ngOnDestory() {
     this.el.nativeElement.remove();

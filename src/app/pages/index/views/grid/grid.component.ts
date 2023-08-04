@@ -25,6 +25,7 @@ import { TableComponent } from '../table/table.component';
 })
 export class GridComponent implements OnInit {
   users: any[] = [];
+  selectedUser;
   showAddUserModal: boolean = false;
   validators = Validators;
   isFormValid: boolean = false;
@@ -67,6 +68,17 @@ export class GridComponent implements OnInit {
       },
     });
   }
+  deleteUser() {
+    this.usersService.deleteById(this.selectedUser.id).subscribe({
+      next: (deletedUser) => {
+        console.log('deletedUser', deletedUser);
+      },
+      error: (err) => {
+        console.log('error', err);
+      },
+      complete: () => {},
+    });
+  }
   toggleAddUserModal(emittedValue: boolean) {
     this.showAddUserModal = emittedValue;
   }
@@ -87,7 +99,8 @@ export class GridComponent implements OnInit {
       ? (this.isFormValid = false)
       : (this.isFormValid = true);
   }
-  toggleConfirmationModal(emittedValue: any) {
+  toggleDeletetionModal(emittedValue: any) {
+    this.selectedUser = emittedValue;
     this.showDeletetionConfirmationModal =
       !this.showDeletetionConfirmationModal;
   }
