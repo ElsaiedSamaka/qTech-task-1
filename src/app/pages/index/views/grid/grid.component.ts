@@ -71,7 +71,7 @@ export class GridComponent implements OnInit {
   deleteUser() {
     this.usersService.deleteById(this.selectedUser.id).subscribe({
       next: (deletedUser) => {
-        console.log('deletedUser', deletedUser);
+        this.users = this.usersService.users$.value;
       },
       error: (err) => {
         console.log('error', err);

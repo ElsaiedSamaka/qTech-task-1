@@ -23,7 +23,7 @@ export class TemplateService {
     return this.apiService.delete(`/api/items/${id}`).pipe(
       tap((deleteItem) => {
         let updatedItems = this.items$.value.filter(
-          (item) => item.id !== deleteItem.id
+          (item) => item.id != deleteItem.id
         );
         this.items$.next(updatedItems);
       })

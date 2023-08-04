@@ -6,7 +6,7 @@ import { ApiService } from './api.service';
   providedIn: 'root',
 })
 export class UsersService {
-  private users$ = new BehaviorSubject<any[]>([]);
+  users$ = new BehaviorSubject<any[]>([]);
   users = this.users$.asObservable;
 
   constructor(private apiService: ApiService) {}
@@ -25,7 +25,7 @@ export class UsersService {
     return this.apiService.delete(`/api/users/${id}`).pipe(
       tap((deletedUser) => {
         let updatedUsers = this.users$.value.filter(
-          (user) => user.id !== deletedUser.id
+          (user) => user.id != deletedUser.id
         );
         let sortedUsers = updatedUsers.sort((a, b) => b.id - a.id);
         this.users$.next(sortedUsers);
