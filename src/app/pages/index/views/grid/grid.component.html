@@ -55,7 +55,8 @@
 <!-- Delete Modal -->
 <app-popup></app-popup>
 <!-- Toast -->
-<app-toast *ngIf="showToast" toastType="error" [toastMessage]="toastMessage" (dismiss)="toggleToast()"></app-toast>
+<app-toast *ngIf="showToast" [toastType]="toastType" [toastMessage]="toastMessage"
+  (dismiss)="toggleToast()"></app-toast>
 <!-- {
       name: 'category',
       label: 'Category',

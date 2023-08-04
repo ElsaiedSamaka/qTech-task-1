@@ -28,6 +28,7 @@ export class GridComponent implements OnInit {
   validators = Validators;
   isFormValid: boolean = false;
   showToast: boolean = false;
+  toastType: string = '';
   toastMessage: string = '';
   constructor(private usersService: UsersService) {}
 
@@ -47,12 +48,19 @@ export class GridComponent implements OnInit {
   }
   postUser(user: any) {
     this.usersService.post(user).subscribe({
-      next: (newUser) => {},
+      next: (newUser) => {
+        this.closeAddUserModal();
+      },
       error: (err) => {
         console.log('error', err);
+        this.toastType = 'error';
+        this.toastMessage = `err: ${err}`;
+        this.toggleToast();
       },
       complete: () => {
-        this.closeAddUserModal();
+        this.toastType = 'success';
+        this.toastMessage = 'user add successfly';
+        this.toggleToast();
       },
     });
   }
