@@ -53,7 +53,9 @@ export class GridComponent implements OnInit {
   postUser(user: any) {
     this.usersService.post(user).subscribe({
       next: (newUser) => {
-        this.closeAddUserModal();
+        this.toastType = 'success';
+        this.toastMessage = 'user was added successfly';
+        this.toggleToast();
       },
       error: (err) => {
         console.log('error', err);
@@ -62,9 +64,7 @@ export class GridComponent implements OnInit {
         this.toggleToast();
       },
       complete: () => {
-        this.toastType = 'success';
-        this.toastMessage = 'user add successfly';
-        this.toggleToast();
+        this.closeAddUserModal();
       },
     });
   }
@@ -72,11 +72,19 @@ export class GridComponent implements OnInit {
     this.usersService.deleteById(this.selectedUser.id).subscribe({
       next: (deletedUser) => {
         this.users = this.usersService.users$.value;
+        this.toastType = 'success';
+        this.toastMessage = 'user was deleted successfly';
+        this.toggleToast();
       },
       error: (err) => {
         console.log('error', err);
+        this.toastType = 'error';
+        this.toastMessage = `err: ${err}`;
+        this.toggleToast();
       },
-      complete: () => {},
+      complete: () => {
+        this.showDeletetionConfirmationModal = false;
+      },
     });
   }
   toggleAddUserModal(emittedValue: boolean) {
