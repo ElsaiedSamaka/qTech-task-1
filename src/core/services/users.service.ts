@@ -13,7 +13,8 @@ export class UsersService {
   getAll(): Observable<any[]> {
     return this.apiService.get('/api/users').pipe(
       tap((users) => {
-        this.users$.next(users);
+        let sortedUsers = users.sort((a, b) => b.id - a.id);
+        this.users$.next(sortedUsers);
       })
     );
   }
@@ -26,14 +27,15 @@ export class UsersService {
         let updatedUsers = this.users$.value.filter(
           (user) => user.id !== deletedUser.id
         );
-        this.users$.next(updatedUsers);
+        let sortedUsers = updatedUsers.sort((a, b) => b.id - a.id);
+        this.users$.next(sortedUsers);
       })
     );
   }
   post(item: any): Observable<any> {
     return this.apiService.post('/api/users', item).pipe(
       tap((addedUser) => {
-        this.users$.value.push(addedUser);
+        this.users$.value.unshift(addedUser);
       })
     );
   }
