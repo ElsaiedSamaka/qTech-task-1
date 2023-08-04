@@ -5,10 +5,23 @@ import { FormComponent } from './form/form.component';
 import { InputComponent } from './input/input.component';
 import { ModalComponent } from './modal/modal.component';
 import { PopupComponent } from './popup/popup.component';
+import { ToastComponent } from './toast/toast.component';
 
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule],
-  declarations: [ModalComponent, PopupComponent, InputComponent, FormComponent],
-  exports: [ModalComponent, PopupComponent, InputComponent, FormComponent],
+  declarations: [
+    ModalComponent,
+    PopupComponent,
+    InputComponent,
+    FormComponent,
+    ToastComponent,
+  ],
+  exports: [
+    ModalComponent,
+    PopupComponent,
+    InputComponent,
+    FormComponent,
+    ToastComponent,
+  ],
 })
 export class SharedModule {}
