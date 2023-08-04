@@ -52,8 +52,10 @@
     </app-form>
     </div>
     </app-modal>
+<!-- Add Modal -->
+
 <!-- Delete Modal -->
-<app-popup (disableScrolling)="disableHostScrolling = $event">
+<app-popup *ngIf="showDeletetionConfirmationModal" (disableScrolling)="disableHostScrolling = $event">
   <div modal-header>
   </div>
   <div class="p-10 text-center" modal-body>
@@ -76,9 +78,13 @@
     </div>
   </div>
 </app-popup>
+<!-- Delete Modal -->
+
 <!-- Toast -->
 <app-toast *ngIf="showToast" [toastType]="toastType" [toastMessage]="toastMessage"
   (dismiss)="toggleToast()"></app-toast>
+<!-- Toast -->
+
 <!-- {
       name: 'category',
       label: 'Category',

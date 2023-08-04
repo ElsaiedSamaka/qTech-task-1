@@ -32,6 +32,7 @@ export class GridComponent implements OnInit {
   toastType: string = '';
   toastMessage: string = '';
   disableHostScrolling: string = '';
+  showDeletetionConfirmationModal: boolean = false;
   constructor(private usersService: UsersService) {}
 
   ngOnInit() {
@@ -85,5 +86,9 @@ export class GridComponent implements OnInit {
     emitFormStatus == 'INVALID'
       ? (this.isFormValid = false)
       : (this.isFormValid = true);
+  }
+  toggleConfirmationModal() {
+    this.showDeletetionConfirmationModal =
+      !this.showDeletetionConfirmationModal;
   }
 }
