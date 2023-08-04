@@ -13,16 +13,20 @@ import {
 })
 export class PopupComponent implements OnInit {
   @Output() dismiss = new EventEmitter<boolean>();
-
+  @Output() disableScrolling = new EventEmitter<String>();
   constructor(private el: ElementRef) {}
 
   ngOnInit() {
     document.body.appendChild(this.el.nativeElement);
+    this.disableHostScrolling();
   }
   ngOnDestory() {
     this.el.nativeElement.remove();
   }
   onDismissClick() {
     this.dismiss.emit(false);
+  }
+  disableHostScrolling() {
+    this.disableScrolling.emit('overflow-hidden');
   }
 }

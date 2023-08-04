@@ -1,4 +1,4 @@
-import { NgFor, NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -19,6 +19,7 @@ import { TableComponent } from '../table/table.component';
     TableComponent,
     NgIf,
     NgFor,
+    NgClass,
     SharedModule,
   ],
 })
@@ -30,6 +31,7 @@ export class GridComponent implements OnInit {
   showToast: boolean = false;
   toastType: string = '';
   toastMessage: string = '';
+  disableHostScrolling: string = '';
   constructor(private usersService: UsersService) {}
 
   ngOnInit() {
