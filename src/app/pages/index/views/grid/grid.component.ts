@@ -26,6 +26,7 @@ export class GridComponent implements OnInit {
   users: any[] = [];
   showAddUserModal: boolean = false;
   validators = Validators;
+  isFormValid: boolean = false;
   constructor(private usersService: UsersService) {}
 
   ngOnInit() {
@@ -52,6 +53,8 @@ export class GridComponent implements OnInit {
     console.log('emittedValue', emittedValue);
   }
   checkFormStatus(emitFormStatus: any) {
-    console.log('emitFormStatus', emitFormStatus);
+    emitFormStatus == 'INVALID'
+      ? (this.isFormValid = false)
+      : (this.isFormValid = true);
   }
 }
