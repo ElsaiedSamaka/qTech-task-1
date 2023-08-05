@@ -115,4 +115,28 @@ export class GridComponent implements OnInit {
     this.showDeletetionConfirmationModal =
       !this.showDeletetionConfirmationModal;
   }
+  public onGoTo(page: number): void {
+    // this.page = page;
+    // this.usersToDisplay = this.paginate(this.page, this.size);
+  }
+
+  public onNext(page: number): void {
+    // if (this.page === this.totalPages) return;
+    // if (this.page < this.totalPages) {
+    //   this.page++;
+    //   this.usersToDisplay = this.paginate(this.page, this.size);
+    // }
+  }
+
+  public onPrevious(page: number): void {
+    // if (this.page === 1) return;
+    // if (this.page > 1) {
+    //   this.page--;
+    //   this.usersToDisplay = this.paginate(this.page, this.size);
+    // }
+  }
+
+  public paginate(current: number, size: number): any[] {
+    return [...this.users.slice((current - 1) * size).slice(0, size)];
+  }
 }
