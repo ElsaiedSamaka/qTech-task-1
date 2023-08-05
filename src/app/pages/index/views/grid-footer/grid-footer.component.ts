@@ -1,5 +1,13 @@
 import { NgClass, NgFor, NgIf } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'app-grid-footer',
@@ -8,7 +16,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   standalone: true,
   imports: [NgClass, NgFor, NgIf],
 })
-export class GridFooterComponent implements OnInit {
+export class GridFooterComponent implements OnInit, OnChanges {
   @Input() data: any = {};
   @Input() currentPage: number = this.data['currentPage'];
   totalPages: number = this.data['totalPages'];
@@ -23,6 +31,15 @@ export class GridFooterComponent implements OnInit {
   }
 
   ngOnInit() {}
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes) {
+      let currentDataValue = changes['data'].currentValue;
+      this.totalItems = currentDataValue.totalItems;
+      this.totalPages = currentDataValue.totalPages;
+      console.log("this.data['totalPages']", this.totalPages);
+      console.log("this.data['totalItems']", this.totalItems);
+    }
+  }
   public onGoTo(page: number): void {
     console.log(`Page changed to ${page}`);
     this.goTo.emit(page);
@@ -37,21 +54,23 @@ export class GridFooterComponent implements OnInit {
     this.previous.emit(this.currentPage);
   }
   getPages(current: number, total: number): number[] {
-    if (total <= 7) {
-      console.log('total <= 7');
-      return Array.from(Array(total).keys()).map((x) => ++x);
-    }
+    switch (true) {
+      case total <= 7:
+        console.log('total <= 7');
+        return Array.from(Array(total).keys()).map((x) => ++x);
 
-    if (current > 5) {
-      console.log('current > 5');
-      if (current >= total - 4) {
-        console.log('current >= total - 4');
-        return [1, -1, total - 4, total - 3, total - 2, total - 1, total];
-      } else {
-        console.log('else');
-        return [1, -1, current - 1, current, current + 1, -1, total];
-      }
+      case current > 5:
+        console.log('current > 5');
+        if (current >= total - 4) {
+          console.log('current >= total - 4');
+          return [1, -1, total - 4, total - 3, total - 2, total - 1, total];
+        } else {
+          console.log('else');
+          return [1, -1, current - 1, current, current + 1, -1, total];
+        }
+
+      default:
+        return [1, 2, 3, 4, 5, -1, total];
     }
-    return [1, 2, 3, 4, 5, -1, total];
   }
 }

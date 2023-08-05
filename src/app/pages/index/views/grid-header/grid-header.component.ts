@@ -7,12 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
   standalone: true,
 })
 export class GridHeaderComponent implements OnInit {
-  @Input() data: any ={};
-  constructor() {
-    console.log('data 1', this.data);
-  }
+  @Input() data: any = {};
+  constructor() {}
 
-  ngOnInit() {
-    console.log('data 2', this.data);
-  }
+  ngOnInit() {}
 }
