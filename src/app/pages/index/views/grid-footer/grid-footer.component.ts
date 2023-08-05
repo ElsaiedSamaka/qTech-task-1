@@ -60,16 +60,12 @@ export class GridFooterComponent implements OnInit, OnChanges {
   getPages(current: number, total: number): number[] {
     switch (true) {
       case total <= 7:
-        console.log('total <= 7');
         return Array.from(Array(total).keys()).map((x) => ++x);
 
       case current > 5:
-        console.log('current > 5');
         if (current >= total - 4) {
-          console.log('current >= total - 4');
           return [1, -1, total - 4, total - 3, total - 2, total - 1, total];
         } else {
-          console.log('else');
           return [1, -1, current - 1, current, current + 1, -1, total];
         }
 
