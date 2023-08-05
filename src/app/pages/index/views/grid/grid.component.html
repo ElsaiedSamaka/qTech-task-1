@@ -5,7 +5,7 @@
       <app-grid-header [data]="data"></app-grid-header>
       <app-grid-actions (viewAddModal)="toggleAddUserModal($event)"></app-grid-actions>
       <app-table [data]="data" (userToDelete)="toggleDeletetionModal($event)"></app-table>
-      <app-grid-footer [data]="data" [currentPage]="page" (goTo)="onGoTo($event)" (previous)="onPrevious($event) "
+      <app-grid-footer [data]="data" (goTo)="onGoTo($event)" (previous)="onPrevious($event) "
         (next)="onNext($event)"></app-grid-footer>
     </div>
   </div>

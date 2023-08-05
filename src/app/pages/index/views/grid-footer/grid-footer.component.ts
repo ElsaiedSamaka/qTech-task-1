@@ -18,7 +18,7 @@ import {
 })
 export class GridFooterComponent implements OnInit, OnChanges {
   @Input() data: any = {};
-  @Input() currentPage: number = this.data['currentPage'];
+  currentPage: number = this.data['currentPage'];
   totalPages: number = this.data['totalPages'];
   totalItems: number = this.data['totalItems'];
   @Output() goTo: EventEmitter<number> = new EventEmitter<number>();
@@ -33,6 +33,7 @@ export class GridFooterComponent implements OnInit, OnChanges {
       let currentDataValue = changes['data'].currentValue;
       this.totalItems = currentDataValue.totalItems;
       this.totalPages = currentDataValue.totalPages;
+      this.currentPage = currentDataValue.currentPage;
       this.pages = this.getPages(this.currentPage, this.totalPages);
     }
   }
@@ -41,12 +42,15 @@ export class GridFooterComponent implements OnInit, OnChanges {
     this.goTo.emit(page);
   }
   public onNext(): void {
-    console.log('Next page', this.currentPage);
-    console.log(this.pages);
-    this.next.emit(this.currentPage);
+    if (this.currentPage === this.totalPages) return;
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      console.log('Next page', this.currentPage);
+      this.next.emit(this.currentPage);
+    }
   }
   public onPrevious(): void {
-    console.log('Previous page');
+    console.log('Previous page', this.currentPage);
     this.previous.emit(this.currentPage);
   }
   getPages(current: number, total: number): number[] {
