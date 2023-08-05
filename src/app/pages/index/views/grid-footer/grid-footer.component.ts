@@ -10,8 +10,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class GridFooterComponent implements OnInit {
   @Input() data: any[] = [];
-  @Input() currentPage: number = 0;
-  totalPages: number = Math.ceil(this.data.length / 5);
+  @Input() currentPage: number = this.data['currentPage'];
+  totalPages: number = this.data['totalPages'];
 
   @Output() goTo: EventEmitter<number> = new EventEmitter<number>();
   @Output() next: EventEmitter<number> = new EventEmitter<number>();
