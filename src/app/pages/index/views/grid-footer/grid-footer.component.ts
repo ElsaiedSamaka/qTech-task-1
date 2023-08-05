@@ -39,6 +39,7 @@ export class GridFooterComponent implements OnInit, OnChanges {
   }
   public onGoTo(page: number): void {
     console.log(`Page changed to ${page}`);
+    this.currentPage = page;
     this.goTo.emit(page);
   }
   public onNext(): void {
