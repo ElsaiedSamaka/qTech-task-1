@@ -45,7 +45,7 @@ export class GridComponent implements OnInit {
   }
   getUsers(page?: number, size?: number): void {
     this.usersService.getAll(page, size).subscribe({
-      next: (users) => {
+      next: (response) => {
         this.users = this.usersService.users$.value;
         this.data = this.usersService.data$.value;
       },
