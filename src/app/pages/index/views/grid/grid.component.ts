@@ -24,7 +24,7 @@ import { TableComponent } from '../table/table.component';
   ],
 })
 export class GridComponent implements OnInit {
-  data;
+  data: any = {};
   users: any[] = [];
   selectedUser;
   showAddUserModal: boolean = false;

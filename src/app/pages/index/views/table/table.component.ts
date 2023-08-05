@@ -9,7 +9,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   imports: [NgFor, NgIf, DatePipe],
 })
 export class TableComponent implements OnInit {
-  @Input() data: any[] = [];
+  @Input() data: any = {};
   @Output() userToDelete = new EventEmitter<any>();
   constructor() {}
 

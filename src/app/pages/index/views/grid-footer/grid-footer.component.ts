@@ -9,7 +9,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   imports: [NgClass, NgFor, NgIf],
 })
 export class GridFooterComponent implements OnInit {
-  @Input() data: any[] = [];
+  @Input() data: any = {};
   @Input() currentPage: number = this.data['currentPage'];
   totalPages: number = this.data['totalPages'];
   totalItems: number = this.data['totalItems'];
