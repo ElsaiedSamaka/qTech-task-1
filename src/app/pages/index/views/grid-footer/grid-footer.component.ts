@@ -50,8 +50,12 @@ export class GridFooterComponent implements OnInit, OnChanges {
     }
   }
   public onPrevious(): void {
-    console.log('Previous page', this.currentPage);
-    this.previous.emit(this.currentPage);
+    if (this.currentPage === 0) return;
+    if (this.currentPage >= 1) {
+      this.currentPage--;
+      console.log('Previous page', this.currentPage);
+      this.previous.emit(this.currentPage);
+    }
   }
   getPages(current: number, total: number): number[] {
     switch (true) {
