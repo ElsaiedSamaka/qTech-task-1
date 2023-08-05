@@ -24,6 +24,7 @@ import { TableComponent } from '../table/table.component';
   ],
 })
 export class GridComponent implements OnInit {
+  data;
   users: any[] = [];
   selectedUser;
   showAddUserModal: boolean = false;
@@ -46,6 +47,7 @@ export class GridComponent implements OnInit {
     this.usersService.getAll(page, size).subscribe({
       next: (users) => {
         this.users = this.usersService.users$.value;
+        this.data = this.usersService.data$.value;
       },
       error: (err) => {
         console.log('error retreiving users:', err);

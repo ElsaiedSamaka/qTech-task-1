@@ -20,8 +20,8 @@
       </tr>
     </thead>
     <tbody>
-      <ng-container *ngIf="data.length > 0 ;else nodata">
-      <tr class="border-b hover:bg-gray-100 " *ngFor="let user of data">
+      <ng-container *ngIf="data['rows'].length > 0 ;else nodata">
+        <tr class="border-b hover:bg-gray-100 " *ngFor="let user of data['rows']">
         <td class="p-1 w-5">
           <div class="flex items-center">
             <input id="checkbox-table-search-1" type="checkbox" onclick="event.stopPropagation()"

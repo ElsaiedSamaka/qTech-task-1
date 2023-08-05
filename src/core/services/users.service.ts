@@ -8,6 +8,7 @@ import { ApiService } from './api.service';
 export class UsersService {
   users$ = new BehaviorSubject<any[]>([]);
   users = this.users$.asObservable;
+  data$ = new BehaviorSubject<any[]>([]);
 
   constructor(private apiService: ApiService) {}
   getAll(page?: number, size?: number): Observable<any[]> {
@@ -16,6 +17,7 @@ export class UsersService {
         let { rows: users } = response;
         let sortedUsers = users.sort((a, b) => b.id - a.id);
         this.users$.next(sortedUsers);
+        this.data$.next(response);
       }),
       catchError((err) => {
         // handle error and return a more specific error message
