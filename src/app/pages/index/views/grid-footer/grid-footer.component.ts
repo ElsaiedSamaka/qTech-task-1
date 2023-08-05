@@ -1,4 +1,4 @@
-import { NgClass, NgFor } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
@@ -6,13 +6,13 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   templateUrl: './grid-footer.component.html',
   styleUrls: ['./grid-footer.component.css'],
   standalone: true,
-  imports: [NgClass, NgFor],
+  imports: [NgClass, NgFor, NgIf],
 })
 export class GridFooterComponent implements OnInit {
   @Input() data: any[] = [];
   @Input() currentPage: number = this.data['currentPage'];
   totalPages: number = this.data['totalPages'];
-
+  totalItems: number = this.data['totalItems'];
   @Output() goTo: EventEmitter<number> = new EventEmitter<number>();
   @Output() next: EventEmitter<number> = new EventEmitter<number>();
   @Output() previous: EventEmitter<number> = new EventEmitter<number>();
