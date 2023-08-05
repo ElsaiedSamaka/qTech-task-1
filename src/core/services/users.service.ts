@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -10,12 +10,17 @@ export class UsersService {
   users = this.users$.asObservable;
 
   constructor(private apiService: ApiService) {}
-  getAll(): Observable<any[]> {
-    return this.apiService.get('/api/users').pipe(
+  getAll(page?: number, size?: number): Observable<any[]> {
+    return this.apiService.get(`/api/users?page=${page}&size=${size}`).pipe(
       tap((response) => {
         let { rows: users } = response;
         let sortedUsers = users.sort((a, b) => b.id - a.id);
         this.users$.next(sortedUsers);
+      }),
+      catchError((err) => {
+        // handle error and return a more specific error message
+        const errorMessage = err?.error?.message ?? 'An error occurred.';
+        return throwError(errorMessage);
       })
     );
   }

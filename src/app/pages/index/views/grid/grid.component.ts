@@ -34,13 +34,16 @@ export class GridComponent implements OnInit {
   toastMessage: string = '';
   disableHostScrolling: string = '';
   showDeletetionConfirmationModal: boolean = false;
+  // pagination stuff
+  page: number = 0;
+  size: number = 5;
   constructor(private usersService: UsersService) {}
 
   ngOnInit() {
-    this.getUsers();
+    this.getUsers(this.page, this.size);
   }
-  getUsers(): void {
-    this.usersService.getAll().subscribe({
+  getUsers(page?: number, size?: number): void {
+    this.usersService.getAll(page, size).subscribe({
       next: (users) => {
         this.users = this.usersService.users$.value;
       },
