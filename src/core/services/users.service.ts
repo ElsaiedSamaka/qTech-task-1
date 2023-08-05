@@ -12,7 +12,8 @@ export class UsersService {
   constructor(private apiService: ApiService) {}
   getAll(): Observable<any[]> {
     return this.apiService.get('/api/users').pipe(
-      tap((users) => {
+      tap((response) => {
+        let { rows: users } = response;
         let sortedUsers = users.sort((a, b) => b.id - a.id);
         this.users$.next(sortedUsers);
       })

@@ -42,7 +42,7 @@ export class GridComponent implements OnInit {
   getUsers(): void {
     this.usersService.getAll().subscribe({
       next: (users) => {
-        this.users = users;
+        this.users = this.usersService.users$.value;
       },
       error: (err) => {
         console.log('error retreiving users:', err);
