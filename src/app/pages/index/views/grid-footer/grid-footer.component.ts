@@ -25,10 +25,7 @@ export class GridFooterComponent implements OnInit, OnChanges {
   @Output() next: EventEmitter<number> = new EventEmitter<number>();
   @Output() previous: EventEmitter<number> = new EventEmitter<number>();
   pages: number[] = [];
-  constructor() {
-    this.pages = this.getPages(this.currentPage, this.totalPages);
-    console.log('this.pages', this.pages);
-  }
+  constructor() {}
 
   ngOnInit() {}
   ngOnChanges(changes: SimpleChanges): void {
@@ -36,8 +33,7 @@ export class GridFooterComponent implements OnInit, OnChanges {
       let currentDataValue = changes['data'].currentValue;
       this.totalItems = currentDataValue.totalItems;
       this.totalPages = currentDataValue.totalPages;
-      console.log("this.data['totalPages']", this.totalPages);
-      console.log("this.data['totalItems']", this.totalItems);
+      this.pages = this.getPages(this.currentPage, this.totalPages);
     }
   }
   public onGoTo(page: number): void {
