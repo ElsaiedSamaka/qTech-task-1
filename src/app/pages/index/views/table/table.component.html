@@ -22,40 +22,40 @@
     <tbody>
       <ng-container *ngIf="data.length > 0 ;else nodata">
       <tr class="border-b hover:bg-gray-100 " *ngFor="let user of data">
-        <td class="p-4 w-5">
+        <td class="p-1 w-5">
           <div class="flex items-center">
             <input id="checkbox-table-search-1" type="checkbox" onclick="event.stopPropagation()"
               class="w-5 h-5 text-primary-600 bg-gray-100 rounded border-gray-300 focus:ring-primary-500 :focus:ring-primary-600 :ring-offset-gray-800 focus:ring-2 :bg-gray-700 :border-gray-600">
             <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
           </div>
         </td>
-        <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap ">
+        <th scope="row" class="px-4 py-1 font-medium text-gray-900 whitespace-nowrap ">
           <div class="flex items-center mr-3">
             {{user.username}}
           </div>
         </th>
-        <td class="px-4 py-3">
+        <td class="px-4 py-1">
           <span
             class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded :bg-primary-900 :text-primary-300">{{user.phonenumber}}</span>
         </td>
-        <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap ">{{user.email}}</td>
-        <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap ">{{user.birthdate}}</td>
-        <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap ">
+        <td class="px-4 py-1 font-medium text-gray-900 whitespace-nowrap ">{{user.email}}</td>
+        <td class="px-4 py-1 font-medium text-gray-900 whitespace-nowrap ">{{user.birthdate}}</td>
+        <td class="px-4 py-1 font-medium text-gray-900 whitespace-nowrap ">
           <div class="flex items-center">
           {{user.address}}
           </div>
         </td>
-        <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap ">
+        <td class="px-4 py-1 font-medium text-gray-900 whitespace-nowrap ">
           <div class="flex items-center">
           {{user.createdAt| date:'short'}}
           </div>
         </td>
-        <td class="px-4 py-3">{{user.updatedAt | date:'short'}}</td>
-        <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap ">
+        <td class="px-4 py-1">{{user.updatedAt | date:'short'}}</td>
+        <td class="px-4 py-1 font-medium text-gray-900 whitespace-nowrap ">
           <div class="flex items-center space-x-4">
             <button type="button" data-drawer-target="drawer-update-product" data-drawer-show="drawer-update-product"
               aria-controls="drawer-update-product"
-              class="py-2 px-3 flex items-center text-sm font-medium text-center text-blue-600 border bg-white hover:bg-gray-100 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 :bg-primary-600 :hover:bg-primary-700 :focus:ring-primary-800">
+              class="py-1 px-3 flex items-center text-sm font-medium text-center text-blue-600 border bg-white hover:bg-gray-100 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 :bg-primary-600 :hover:bg-primary-700 :focus:ring-primary-800">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 -ml-0.5" viewbox="0 0 20 20"
                 fill="currentColor" aria-hidden="true">
                 <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
@@ -67,7 +67,7 @@
             </button>
             <button type="button" data-drawer-target="drawer-read-product-advanced"
               data-drawer-show="drawer-read-product-advanced" aria-controls="drawer-read-product-advanced"
-              class="py-2 px-3 flex items-center text-sm font-medium text-center text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 :focus:ring-gray-700 :bg-gray-800 :text-gray-400 :border-gray-600 :hover :hover:bg-gray-700">
+              class="py-1 px-3 flex items-center text-sm font-medium text-center text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 :focus:ring-gray-700 :bg-gray-800 :text-gray-400 :border-gray-600 :hover :hover:bg-gray-700">
               <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="currentColor"
                 class="w-6 h-6 mr-2 -ml-0.5">
                 <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
@@ -78,7 +78,7 @@
             </button>
             <button type="button" data-modal-target="delete-modal" data-modal-toggle="delete-modal"
               (click)="deleteUser(user)"
-              class="flex items-center text-red-700 hover:text-white border  hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center :border-red-500 :text-red-500 :hover :hover:bg-red-600 :focus:ring-red-900">
+              class="flex items-center text-red-700 hover:text-white border  hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-1 text-center :border-red-500 :text-red-500 :hover :hover:bg-red-600 :focus:ring-red-900">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 -ml-0.5" viewbox="0 0 20 20"
                 fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd"
