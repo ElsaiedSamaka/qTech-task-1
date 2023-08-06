@@ -37,7 +37,7 @@ export class UsersService {
         );
         console.log('updated users', updatedUsers);
         let sortedUsers = updatedUsers.sort((a, b) => b.id - a.id);
-        this.users$.next(updatedUsers);
+        this.users$.next(sortedUsers);
       })
     );
   }
