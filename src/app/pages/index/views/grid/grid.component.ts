@@ -27,6 +27,7 @@ export class GridComponent implements OnInit {
   data: any = {};
   selectedUser;
   showAddUserModal: boolean = false;
+  showEditUserModal: boolean = false;
   validators = Validators;
   isFormValid: boolean = false;
   showToast: boolean = false;
@@ -95,6 +96,12 @@ export class GridComponent implements OnInit {
   }
   closeAddUserModal() {
     this.showAddUserModal = false;
+  }
+  toggleEditUserModal(emittedValue: boolean) {
+    this.showEditUserModal = emittedValue;
+  }
+  closeEditUserModal() {
+    this.showEditUserModal = false;
   }
   toggleToast() {
     this.showToast = !this.showToast;
