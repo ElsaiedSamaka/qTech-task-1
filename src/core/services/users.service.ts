@@ -43,7 +43,7 @@ export class UsersService {
   post(item: any): Observable<any> {
     return this.apiService.post('/api/users', item).pipe(
       tap((addedUser) => {
-        this.users$.value.unshift(addedUser);
+        this.users$.value.splice(0, 1, addedUser);
       })
     );
   }
