@@ -97,8 +97,11 @@ export class GridComponent implements OnInit {
   closeAddUserModal() {
     this.showAddUserModal = false;
   }
-  toggleEditUserModal(emittedValue: boolean) {
+  viewEditUserModal(emittedValue: boolean) {
     this.showEditUserModal = emittedValue;
+  }
+  toggleEditUserModal(emittedValue: any) {
+    this.selectedUser = emittedValue;
   }
   closeEditUserModal() {
     this.showEditUserModal = false;

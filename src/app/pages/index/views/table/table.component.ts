@@ -11,6 +11,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class TableComponent implements OnInit {
   @Input() data: any = {};
   @Output() userToDelete = new EventEmitter<any>();
+  @Output() userToEdit = new EventEmitter<any>();
   @Output() viewEditModal = new EventEmitter<boolean>();
 
   constructor() {}
@@ -21,5 +22,8 @@ export class TableComponent implements OnInit {
   }
   onEdit() {
     this.viewEditModal.emit(true);
+  }
+  editUser(user: any) {
+    this.userToEdit.emit(user);
   }
 }
