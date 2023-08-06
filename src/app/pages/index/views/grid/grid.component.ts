@@ -25,7 +25,6 @@ import { TableComponent } from '../table/table.component';
 })
 export class GridComponent implements OnInit {
   data: any = {};
-  // users: any[] = [];
   selectedUser;
   showAddUserModal: boolean = false;
   validators = Validators;
@@ -46,7 +45,6 @@ export class GridComponent implements OnInit {
   getUsers(page?: number, size?: number): void {
     this.usersService.getAll(page, size).subscribe({
       next: (response) => {
-        // this.users = this.usersService.users$.value;
         this.data = this.usersService.data$.value;
       },
       error: (err) => {
