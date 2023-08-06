@@ -35,8 +35,9 @@ export class UsersService {
         let updatedUsers = this.users$.value.filter(
           (user) => user.id != deletedUser.id
         );
+        console.log('updated users', updatedUsers);
         let sortedUsers = updatedUsers.sort((a, b) => b.id - a.id);
-        this.users$.next(sortedUsers);
+        this.users$.next(updatedUsers);
       })
     );
   }

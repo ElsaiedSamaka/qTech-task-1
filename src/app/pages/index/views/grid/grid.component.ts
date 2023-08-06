@@ -25,7 +25,7 @@ import { TableComponent } from '../table/table.component';
 })
 export class GridComponent implements OnInit {
   data: any = {};
-  users: any[] = [];
+  // users: any[] = [];
   selectedUser;
   showAddUserModal: boolean = false;
   validators = Validators;
@@ -46,7 +46,7 @@ export class GridComponent implements OnInit {
   getUsers(page?: number, size?: number): void {
     this.usersService.getAll(page, size).subscribe({
       next: (response) => {
-        this.users = this.usersService.users$.value;
+        // this.users = this.usersService.users$.value;
         this.data = this.usersService.data$.value;
       },
       error: (err) => {
@@ -76,7 +76,7 @@ export class GridComponent implements OnInit {
   deleteUser() {
     this.usersService.deleteById(this.selectedUser.id).subscribe({
       next: (deletedUser) => {
-        this.users = this.usersService.users$.value;
+        // this.users = this.usersService.users$.value;
         this.toastType = 'success';
         this.toastMessage = 'user was deleted successfly';
         this.toggleToast();
@@ -131,5 +131,4 @@ export class GridComponent implements OnInit {
     this.page = page;
     this.getUsers(this.page, this.size);
   }
-
 }
