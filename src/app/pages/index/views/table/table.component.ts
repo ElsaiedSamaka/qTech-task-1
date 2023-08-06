@@ -11,10 +11,15 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class TableComponent implements OnInit {
   @Input() data: any = {};
   @Output() userToDelete = new EventEmitter<any>();
+  @Output() viewEditModal = new EventEmitter<boolean>();
+
   constructor() {}
 
   ngOnInit() {}
   deleteUser(user: any) {
     this.userToDelete.emit(user);
+  }
+  onEdit() {
+    this.viewEditModal.emit(true);
   }
 }
