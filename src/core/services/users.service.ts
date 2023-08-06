@@ -44,8 +44,10 @@ export class UsersService {
   post(item: any): Observable<any> {
     return this.apiService.post('/api/users', item).pipe(
       tap((addedUser) => {
-        this.users$.value.unshift(addedUser);
+        // remove from the bottom
         this.users$.value.splice(-1, 1);
+        // add to the top
+        this.users$.value.unshift(addedUser);
       })
     );
   }
