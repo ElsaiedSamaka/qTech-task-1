@@ -10,7 +10,7 @@ export class FormComponent implements OnInit {
   @Input() fields: any[] = [];
   @Output() submitted = new EventEmitter<any>();
   @Output() formStatus = new EventEmitter<any>();
-  form: FormGroup;
+  form: FormGroup = new FormGroup({});
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
@@ -22,20 +22,20 @@ export class FormComponent implements OnInit {
       ];
     });
     this.form = this.fb.group(group);
-    this.emitFormStatus()
+    this.emitFormStatus();
   }
   submitForm() {
     if (this.form.valid) this.submitted.emit(this.form.value);
   }
   emitFormStatus() {
-      this.form.statusChanges.subscribe({
-        next: (status) => {
-          this.formStatus.emit(status);
-        },
-        error: (err) => {
-          console.log('err', err);
-        },
-        complete: () => {},
-      });
+    this.form.statusChanges.subscribe({
+      next: (status) => {
+        this.formStatus.emit(status);
+      },
+      error: (err) => {
+        console.log('err', err);
+      },
+      complete: () => {},
+    });
   }
 }
